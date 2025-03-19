@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Popins', sans-serif;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 35px;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .logo {
+        font-size: 25px;
+        color: white;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+
+    .logo:hover {
+        color: orangered;
+        text-shadow: 0 0 25px orangered, 0 0 50px orangered;
+        transform: scale(1.1);
+    }
+
+    span {
+        color: orangered;
+    }
+
+    .navbar a {
+        font-size: 18px;
+        color: white;
+        font-weight: 500;
+        margin: 0 20px;
+        border-bottom: 3px solid transparent;
+        transition: 0.3s ease;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+        color: orangered;
+        border-bottom: 3px solid orangered;
+    }
+
+    .contact {
+        padding: 10px 20px;
+        background-color: white;
+        color: black;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        font-size: 16px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+
+    .contact:hover {
+        background-color: orangered;
+        box-shadow: 0 0 25px orangered;
+        color: white;
+    }
+
+    .home {
+        width: 100%;
+        min-height: 100vh;
+        background: rgb(241, 241, 241);
+        display: flex;
+        align-items: center;
+        gap: 7em;
+        padding: 30px 12% 0;
+    }
+
+    .home-content {
+        width: 800px;
+    }
+
+    .home-content h3 {
+        font-size: 42px;
+    }
+
+    .home-content h1 {
+        font-size: 62px;
+        line-height: 1.2;
+    }
+
+    .home-content p {
+        font-size: 18px;
+        margin: 25px 0 30px;
+    }
+
+    .btn-box {
+        width: 345px;
+        display: flex;
+        gap: 2em;
+    }
+
+    .btn-1 {
+        padding: 15px 28px;
+        background-color: black;
+        color: white;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        font-size: 18px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        transition: 0.3s ease;
+        cursor: pointer;
+    }
+
+    .btn-1:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid black;
+    }
+
+    .btn-2 {
+        padding: 15px;
+        background-color: orangered;
+        color: white;
+        border: 2px solid black;
+        border-radius: 8px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        transition: 0.3s ease;
+        cursor: pointer;
+    }
+
+    .btn-2:hover {
+        background-color: white;
+        color: orangered;
+    }
+
+    .img-box img {
+        border-radius: 50%;
+        width: 450px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: orangered;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0.6);
+        width: 50px;
+    }
+
+    .about {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12% 8%;
+        gap: 10em;
+        background-color: black;
+    }
+
+    .about-image img {
+        position: relative;
+        width: 450px;
+        box-shadow: 0 0 25px orangered, 0 0 50px orangered;
+        border-radius: 50%;
+        margin-top: -30px;
+
+    }
+
+    .about-content h2 {
+        text-align: left;
+        color: white;
+        font-size: 42px;
+    }
+
+    .about-content h3 {
+        font-size: 62px;
+        color: white;
+    }
+
+    .about-content p {
+        color: white;
+        font-size: 20px;
+        text-align: left;
+        margin: 2em 0 3em;
+    }
+
+    .contact-form h2 {
+        text-align: center;
+        margin-top: 5em;
+        margin-bottom: 1em;
+        font-size: 36px;
+    }
+
+    .contact-form form {
+        max-width: 50em;
+        margin: 1rem auto;
+        text-align: center;
+        margin-bottom: 3em;
+    }
+
+    .contact-form form .input-box {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .contact-form form .input-box input,
+    .contact-form form textarea {
+        width: 100%;
+        padding: 1.5em;
+        font-size: 18px;
+        color: black;
+        background-color: rgb(241, 241, 241);
+        border-radius: .8rem;
+        margin: 1rem 0;
+        resize: none;
+    }
+
+    .footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        padding: 40px 0;
+        background-color: black;
+    }
+
+    .footer .social {
+        text-align: center;
+        padding-bottom: 25px;
+        color: white;
+
+    }
+
+    .footer .social a {
+        font-size: 24px;
+        color: white;
+        border: 2px solid orangered;
+        width: 40px;
+        height: 40px;
+        line-height: 38px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        margin: 0 8px;
+        box-shadow: inset 0 0 10px orangered, 0 0 10px orangered;
+        transition: 0.3s ease;
+
+    }
+
+    .footer .social a:hover {
+        transform: scale(1.2)translateY(-10px);
+        color: orangered;
+        border: 2px solid orangered;
+    }
+
+    .footer ul {
+        margin-top: 0;
+        padding: 0;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .footer ul li a {
+        color: white;
+        border-bottom: 3px solod transparent;
+        transition: o.3s ease;
+    }
+
+    .footer ul li a:hover {
+        border-bottom: 3px solid orangered;
+
+    }
+
+    .footer ul li {
+        display: inline-block;
+        padding: 0 15px;
+    }
+
+    .footer .copyright {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 12px;
+        color: white;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+
+    }
+
+    .map-section {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .iframe-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .box {
+        width: 90%;
+        max-width: 600px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        font-size: 22px;
+        font-weight: bold;
+        color: black;
+        text-shadow: 2px 2px 5px rgba(195, 191, 189, 0.5);
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    iframe {
+        width: 100%;
+        height: 400px;
+        border-radius: 10px;
+    }
+
+    .hymn-section {
+        text-align: center;
+        padding: 20px;
+
+    }
+
+    .cec {
+        color: orangered;
+    }
+
+    .cec:hover {
+        color: white;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .project-image {
+        width: 100%;
+        height: 250;
+        display: flex;
+        margin: 0;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(117, 116, 116, 0.5);
+        align-items: center;
+        text-align: center;
+    }
+
+    .back-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        background: orangered;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .back-button:hover {
+        background: darkred;
+    }
+
+    .proj {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgb(241, 241, 241);
+        color: black;
+        margin-top: 70px;
+    }
+
+    .emoji {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: white;
+    }
+
+    .emoji-section {
+
+        background: white;
+        width: 50%;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .emoji-list {
+        font-size: 2rem;
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+
+    <header class="header">
+        <a href="#home" class="logo"><span>Sy</span> B.</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#aboutme" class="nav">About Me</a>
+            <a href="#proj" class="nav">Projects</a>
+            <a href="#blog" class="nav">Blog</a>
+            <a href="#emoji" class="nav">Emojies</a>
+        </nav>
+        <a href="#contact-me" class="contact">Contact Me</a>
+    </header>
+    <main>
+        <section id="home" class="home">
+            <div class="home-content">
+                <h1>Hi!</h1>
+
+                <h1>I'm <span>Syrell <br></span>an, I.T. <span>Student</span></h1>
+                <p>I&apos;m an aspiring IT student passionate about coding, web development, and problem-solving. I
+                    enjoy
+                    learning new technologies and building projects that challenge me. Welcome to my portfolio!</p>
+                <div class="btn-box">
+                    <a href="#contact-me" class="btn-1">Hire Me</a>
+
+                </div>
+            </div>
+            <div class="img-box">
+                <img src="image.png" alt="">
+            </div>
+        </section>
+
+        <section id="aboutme" class="about">
+
+            <div class="about-image">
+                <img src="image.png" alt="">
+            </div>
+            <div class="about-content">
+                <h2 class="heading">About <span>Me</span></h2>
+                <p>
+                    Hi! I'm <strong>Syrell G. Booc</strong>, an 18-year-old student currently studying at <a
+                        href="#blog" class="cec">Cebu Eastern College (CEC)</a>. <br> I have a strong passion for
+                    technology and software development, constantly exploring new ways to improve my skills in
+                    programming and IT. <br> As a <strong>BSIT student</strong>, I am eager to gain hands-on experience
+                    in coding, and web development. <br><br>
+
+                    Aside from academics, I also have a growing interest in <strong>content creation </strong> and
+                    <strong>video production</strong>, aiming to share valuable and engaging content online. I believe
+                    in continuous learning and strive to challenge myself with new projects that enhance my creativity
+                    and technical expertise. <br> <br>
+
+                    Let's connect and build something amazing together! &#x1F680;</p>
+
+                <br>
+                <br>
+                <br>
+                <br><br>
+                <p></p>
+            </div>
+
+        </section>
+        <section id="proj" class="proj">
+            <div class="container">
+                <div>
+                    <br><br><br><br><br><br>
+                    <img src="cal.jpg" usemap="#projectmap" class="project-image" alt="Projects">
+
+                    <map name="projectmap">
+
+                        <area shape="rect" coords="0,0,400,300" href="calendar.html" alt="Project 1">
+
+                    </map>
+                    <br>
+                    <h3>My Projects</h3>
+                    <p>Click on the project if you want to view:</p>
+                </div>
+
+            </div>
+
+            <a href="#home" class="btn-2">Back to Home</a>
+
+            <br>
+            <p id="blog"></p>
+
+        </section>
+        <hr>
+        <section>
+            <br><br><br><br><br><br>
+            <div class="container">
+                <div class="map-section">
+                    <h3>&quot; CEC Location &quot;</h3>
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.59178119934!2d123.8934419745695!3d10.294438167900044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a99bfcc60d650d%3A0x5ee73506c68dd233!2sCebu%20Eastern%20College%20Cebu%20city!5e0!3m2!1sen!2sph!4v1742115886041!5m2!1sen!2sph"
+                        width="100%" height="200" style=" border:  solid black;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <br>
+                    <p>Cebu Eastern College &#127979; is located in the heart of Cebu City, making it easily accessible
+                        to students from different parts of the city. The campus provides an environment that fosters
+                        learning and growth, surrounded by various establishments that support student life.</p>
+                </div>
+
+                <div class="iframe-section">
+                    <div class="box">
+                        <h3>Follow Us on Facebook
+
+                        </h3>
+                        <p>Stay updated with the latest news, events, and announcements by following Cebu Eastern
+                            College on Facebook. Engage with our vibrant community and be part of the CEC family online.
+                        </p>
+                        <iframe
+                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCEC1915EASTERNIANS&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
+                            width="500" height="1000" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                            allowfullscreen="true"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="hymn-section">
+                <h3>CEC Hymn</h3>
+                <p>The Cebu Eastern College Hymn is a song of pride and unity for the students and alumni of CEC. It
+                    embodies the values and spirit of the institution, inspiring generations to uphold excellence and
+                    integrity.</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/OZdVqky1G_A?si=JxKusV5Y__v3t-tA"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            </div>
+
+
+            <map name="image-map">
+                <area shape="rect" coords="50,50,200,200" href="https://www.google.com" alt="Google" target="_blank">
+                <area shape="circle" coords="300,150,50" href="https://www.youtube.com" alt="YouTube" target="_blank">
+            </map>
+
+        </section>
+        <p id="emoji"></p>
+        <br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <section class="emoji-section">
+
+            <div class="emoji">
+                <h2>My Favorite Emojis</h2>
+                <p>Here are some of my favorite emojis:</p>
+                <div class="emoji-list">&#x1F600;&#x1F60E;&#x1F602;&#x2764;&#x1F44D;&#x1F389;&#x1F680;&#x23F3;</div>
+            </div>
+        </section>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <p id="contact-me"></p>
+        <section class="contact-form">
+            <h2 class="contact-me">Contact <span>Me</span></h2>
+            <form action="#">
+                <div class="input-box">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+
+                </div>
+                <div class="input-box">
+                    <input type="number" placeholder="Phone number">
+
+                </div>
+                <textarea name="" id="" cols="30" rows="10" placeholder="You're Message"></textarea>
+                <input type="submit" value="Send Message" class="btn-1">
+            </form>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="social">
+            <a href="#"><i class='bx bxl-facebook-circle'></i></box-icon></a>
+            <a href="#"><i class='bx bxl-youtube'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+
+        </div>
+        <ul class="list">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About Me</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="copyright">&copy; 2025 Sy B. | All Right Reserved</p>
+    </footer>
+</body>
+
+</html>
